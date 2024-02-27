@@ -4,7 +4,6 @@ import Shop from './components/Shop'
 import { useEffect, useState } from 'react'
 import Cart from './components/Cart'
 import { motion } from 'framer-motion'
-import Infinite from './components/Infinite'
 
 function App() {
   
@@ -55,11 +54,13 @@ function App() {
     setSearchItem(e.target.value);
   }
 
+
+
   return (
-    <div className='relative'>
-      {/* <Infinite/> */}
+    
+    <div className=''>
       <Navbar toggle={toggleCart} cartCount={cartCount} search={search} searchItem={searchItem}/>  
-      <Shop addToCart={addToCart} searchItem={searchItem}/>
+      <Shop addToCart={addToCart} searchItem={searchItem} />
       <Cart isOpen={cartOpen} toggle={toggleCart} cart={cart} removeItem={removeItem}/>
       {showAlertMessage && 
         <motion.div 
@@ -73,7 +74,6 @@ function App() {
         </motion.div>
       }
     </div>
-    
   )
 }
 
