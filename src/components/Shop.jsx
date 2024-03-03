@@ -14,6 +14,7 @@ import AirMax1Men from '../assets/men/air-max-1-shoes-ZCSX34.jpg'
 import DunkLowRetroMen from '../assets/men/dunk-low-retro-se-shoes-RSrHtr.jpg'
 import DunkLow2Men from '../assets/men/dunk-low-retro-shoes-69h36X.jpg'
 import JordanSpizikeMen from '../assets/men/jordan-spizike-low-shoes-pBZk7c.jpg'
+import Slider from '@mui/material/Slider'
 
 
 
@@ -24,7 +25,7 @@ const itemsArray = [
     img: SailAndTeamRed,
     title:'Sail and Team Red',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:2,
@@ -32,7 +33,7 @@ const itemsArray = [
     img: LunarRoam,
     title:'Platinum Tint and  Moss',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:3,
@@ -40,7 +41,7 @@ const itemsArray = [
     img: TerminatorHigh,
     title:'Black and Light Pumice',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:4,
@@ -48,7 +49,7 @@ const itemsArray = [
     img: Cortez,
     title:'Light OreWood Brown',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:5,
@@ -56,7 +57,7 @@ const itemsArray = [
     img: AirJordans2Low,
     title:'Python',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:6,
@@ -64,7 +65,7 @@ const itemsArray = [
     img: AcgAir,
     title:'Phantom And Sail',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:7,
@@ -72,7 +73,7 @@ const itemsArray = [
     img: Attack,
     title:'Oil Green and Ironstone',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:8,
@@ -80,7 +81,7 @@ const itemsArray = [
     img: Cacao,
     title:'Cacao Wow and Sand Drift',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:9,
@@ -88,7 +89,7 @@ const itemsArray = [
     img: luckyGreen,
     title:'Lucky Green',
     category:"Women",
-    price:"14,995"
+    price:14995
   },
   {
     id:10,
@@ -96,7 +97,7 @@ const itemsArray = [
     img: AirJor1LowMen,
     title:'Cowboy brown',
     category:"Men",
-    price:"10,295"
+    price:10295
   },
   {
     id:11,
@@ -104,7 +105,7 @@ const itemsArray = [
     img: AirMax1Men,
     title:'Pepper and Salt',
     category:"Men",
-    price:"12,795"
+    price:12795
   },
   {
     id:12,
@@ -112,7 +113,7 @@ const itemsArray = [
     img: DunkLowRetroMen,
     title:'Moonlight Grey',
     category:"Men",
-    price:"10,795"
+    price:10795
   },
   {
     id:13,
@@ -120,7 +121,7 @@ const itemsArray = [
     img: DunkLow2Men,
     title:'Court Green',
     category:"Men",
-    price:"8,695"
+    price:8695
   },
   {
     id:14,
@@ -128,14 +129,20 @@ const itemsArray = [
     img: JordanSpizikeMen,
     title:'The Spizike',
     category:"Men",
-    price:"14,995"
+    price:14995
   }
 ]
 
-function Shop( {addToCart , searchItem , categoryFilter}) {
-
+function Shop( {addToCart , searchItem }) {
 
   const[items , setItems] = useState(itemsArray)
+
+  const[range , setRange] = useState([0 , 30000]);
+
+  const handleRangeChange = (e , newValue) => {
+    setRange(newValue);
+  };
+  
 
   const [isMenChecked , setIsMenChecked] = useState(false)
 
@@ -145,8 +152,7 @@ function Shop( {addToCart , searchItem , categoryFilter}) {
 
 
   const [isWomenChecked , setIsWomenChecked] = useState(false)
-  
-  
+    
   const handleWomenChecked = () => {
     setIsWomenChecked(prev => !prev)
   }
@@ -157,28 +163,54 @@ function Shop( {addToCart , searchItem , categoryFilter}) {
       item=> item.name.toLocaleLowerCase().includes(searchItem.toLowerCase())) : itemsArray;
     
     if(isMenChecked || isWomenChecked) {
-      filteredItems = filteredItems.filter(item => (isMenChecked && item.category === 'Men') || (isWomenChecked && item.category === 'Women'))
+      filteredItems = itemsArray.filter(item => (isMenChecked && item.category === 'Men') || (isWomenChecked && item.category === 'Women'))
     }
+
+    filteredItems = filteredItems.filter( item => item.price <= range[1] && item.price >= range[0] )
+
 
     setItems(filteredItems)
 
-  } , [searchItem , isMenChecked , isWomenChecked]);
+  } , [searchItem , isMenChecked , isWomenChecked , range]);
 
   return (
     <div className='relative'>    
       <div className='max-w-full min-h-full p-6 flex '>  
         <div className='filter-container w-[10vw]  flex flex-col'>
-            <p className='filter pl-2 pb-2 pt-2 text-3xl font-semibold border-b-4 mb-4'>
+            <p className=' pl-1 pb-2 pt-2 text-3xl font-semibold border-b-4 mb-4'>
               Filter
             </p>
             <div className='flex flex-col gap-2 text-lg'>
-              <div className='w-full flex gap-2'>  
-                <label><input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked}/>Men</label>
+              <div className='w-full border-b-2'>
+                <h1 className='w-full font-bold text-gray-400'>Gender</h1>
+                  <div className='w-full flex gap-2'>  
+                    <label className='m-1'>
+                      <input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked}/>
+                      Men
+                    </label>
+                  </div>
+                  <div className='w-full flex gap-2'>  
+                    <label className='m-1'>
+                      <input type='checkbox' name='Women' checked={isWomenChecked} onChange={handleWomenChecked}/>
+                      Women
+                    </label>
+                  </div>
               </div>
-              <div className='w-full flex gap-2'>  
-                <label><input type='checkbox' name='Women' checked={isWomenChecked} onChange={handleWomenChecked}/>Women</label>
+              <div className='flex flex-col'>
+              <h1 className='w-full font-bold text-gray-400 mb-2'>Range</h1>
+                <Slider
+                    size='small'
+                    value={range}
+                    onChange={handleRangeChange}
+                    valueLabelDisplay="auto"
+                    marks
+                    shiftStep={10000}
+                    step={10000}
+                    min={0}
+                    max={30000}
+                />
               </div>
-              </div>
+            </div>
         </div>
         <div className='w-[90vw] flex gap-5 flex-wrap justify-center'>
           {items.map( item => {
@@ -193,12 +225,3 @@ function Shop( {addToCart , searchItem , categoryFilter}) {
 
 export default Shop
 
-
-{/* <div className='max-w-full min-h-full p-7 relative'>
-      
-      <div className='flex gap-1 flex-wrap justify-around'>
-        {filteredItems.map( item => {
-          return <Item item={item} key={item.id} addToCart={addToCart}/>
-        })}
-      </div>
-    </div> */}

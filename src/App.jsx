@@ -4,6 +4,7 @@ import Shop from './components/Shop'
 import { useEffect, useState } from 'react'
 import Cart from './components/Cart'
 import { motion } from 'framer-motion'
+import Loader from './components/Loader'
 
 function App() {
   
@@ -58,7 +59,8 @@ function App() {
 
   return (
     
-    <div className=''>
+    <div className='relative'>
+      <Loader/>
       <Navbar toggle={toggleCart} cartCount={cartCount} search={search} searchItem={searchItem}/>  
       <Shop addToCart={addToCart} searchItem={searchItem} />
       <Cart isOpen={cartOpen} toggle={toggleCart} cart={cart} removeItem={removeItem}/>
