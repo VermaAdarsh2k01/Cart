@@ -26,7 +26,7 @@ function App() {
     setShowAlertMessage(true)
     setTimeout( ()=> setShowAlertMessage(false) ,3000) 
     setCartOpen(true)
-    setTimeout( ()=> setCartOpen(false) , 1500)
+    setTimeout( ()=> setCartOpen(false) , 1000)
   }
 
   //remove cart item that uses the cart array
@@ -55,6 +55,7 @@ function App() {
     setSearchItem(e.target.value);
   }
 
+  
 
 
   return (

@@ -148,6 +148,7 @@ function Shop( {addToCart , searchItem }) {
 
   const handleMenChecked = () => {
     setIsMenChecked(prev => !prev)
+    
   }
 
 
@@ -156,8 +157,8 @@ function Shop( {addToCart , searchItem }) {
   const handleWomenChecked = () => {
     setIsWomenChecked(prev => !prev)
   }
-  
 
+  
   useEffect( () => {
     let filteredItems = searchItem ? itemsArray.filter( 
       item=> item.name.toLocaleLowerCase().includes(searchItem.toLowerCase())) : itemsArray;
@@ -217,6 +218,7 @@ function Shop( {addToCart , searchItem }) {
             return <Item item={item} key={item.id} addToCart={addToCart}/>
           })}
         </div>
+
       </div>
     </div>
 

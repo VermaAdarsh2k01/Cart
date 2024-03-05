@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useRef} from 'react';
 import {motion} from 'framer-motion';
-import hehe from '../assets/hehe.jpg'
 import '../App.css'
+// import gsap from 'gsap';
+// import { useGSAP } from '@gsap/react';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
+// gsap.registerPlugin( useGSAP , ScrollTrigger);
+
 
 function Loader() {
+
 
 
     const [ loader , setLoader ] = useState(false);
