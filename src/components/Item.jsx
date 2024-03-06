@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import '../assets/style.css'
 
 function Item({item , addToCart }) {
     const [isHovered , setIsHovered] = useState(false) 
 
+
     return (
     <div 
-      className='w-[25vw]' 
+      className='w-[25vw] max-[420px]:w-[40vw]' 
       onMouseEnter={()=> setIsHovered(true)}
       onMouseLeave={()=> setIsHovered(false)}
     >
@@ -33,8 +35,8 @@ function Item({item , addToCart }) {
           animate={{opacity:1}}
           transition={{delay: 0.1}}
           >
-          <h3 className='text-center font-semibold text-zinc-600'>{item.name}</h3>
-          <h1 className='text-center font-semibold text-2xl'>{item.title}</h1>
+          <h3 className='text-center font-semibold text-zinc-600 max-[320px]:text-[2vw] max-[420px]:text-[3vw]'>{item.name}</h3>
+          <h1 className='text-center title-text font-semibold text-2xl max-[320px]:text-[3vw] max-[420px]:text-[4vw] max-[420px]:leading-none'>{item.title}</h1>
         </motion.div>}
         
         

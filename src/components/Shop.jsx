@@ -176,16 +176,16 @@ function Shop( {addToCart , searchItem }) {
 
   return (
     <div className='relative'>    
-      <div className='max-w-full min-h-full p-6 flex '>  
-        <div className='filter-container w-[10vw]  flex flex-col'>
-            <p className=' pl-1 pb-2 pt-2 text-3xl font-semibold border-b-4 mb-4'>
+      <div className='max-w-full min-h-full p-6 flex max-[425px]:p-1 max-[425px]:gap-5 max-[525px]:flex-col  max-[425px]:items-center '>  
+        <div className='filter-container w-[10vw] flex flex-col border-2 rounded-2xl p-5 h-full max-[425px]:w-[98vw] max-[425px]:px-3 max-[500px]:w-[92vw]'>
+            {/* <p className=' pl-1 pb-2 pt-2 text-3xl font-semibold border-b-4 mb-4 max-[425px]:pt-0 max-[425px]:text-[5vw] max-[425px]:pb-0'>
               Filter
-            </p>
-            <div className='flex flex-col gap-2 text-lg'>
-              <div className='w-full border-b-2'>
+            </p> */}
+            <div className='flex flex-col gap-2 text-lg max-[425px]:gap-1 '>
+              <div className='w-full border-b-2 max-[425px]:flex'>
                 <h1 className='w-full font-bold text-gray-400'>Gender</h1>
-                  <div className='w-full flex gap-2'>  
-                    <label className='m-1'>
+                  <div className='w-full flex gap-2 '>  
+                    <label className='m-1 max-[425px]:mr-2' >
                       <input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked}/>
                       Men
                     </label>
@@ -197,8 +197,8 @@ function Shop( {addToCart , searchItem }) {
                     </label>
                   </div>
               </div>
-              <div className='flex flex-col'>
-              <h1 className='w-full font-bold text-gray-400 mb-2'>Range</h1>
+              <div className='flex max-[425px]:flex min-[500px]:flex-col'>
+              <h1 className='w-full font-bold text-gray-400 mb-2 max-[425px]:w-[30vw]'>Range</h1>
                 <Slider
                     size='small'
                     value={range}
@@ -213,7 +213,7 @@ function Shop( {addToCart , searchItem }) {
               </div>
             </div>
         </div>
-        <div className='w-[90vw] flex gap-5 flex-wrap justify-center'>
+        <div className='items-container w-[90vw] flex gap-5 flex-wrap justify-center'>
           {items.map( item => {
             return <Item item={item} key={item.id} addToCart={addToCart}/>
           })}

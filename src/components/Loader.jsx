@@ -36,7 +36,7 @@ function Loader() {
         variants={loaderVariants}
         transition={{ duration: 1, ease: 'easeInOut' }}
     >
-        <p className='akira text-9xl tracking-tight font-black'>JUST DO IT</p>        
+        <p className='akira text-9xl tracking-tight font-black max-[420px]:text-3xl'>JUST DO IT</p>        
     </motion.div>
   )
 }

@@ -21,13 +21,21 @@ function App() {
   //set cart item
   const[cart , setCart] = useState([])
 
+  
   const addToCart = (item) => {
-    setCart([...cart , item])
+    const existingItem = cart.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      return;
+    } else {
+      setCart(cart => [...cart, item]);
+    }
+    // setCart([...cart , item])
     setShowAlertMessage(true)
     setTimeout( ()=> setShowAlertMessage(false) ,3000) 
     setCartOpen(true)
     setTimeout( ()=> setCartOpen(false) , 1000)
   }
+   
 
   //remove cart item that uses the cart array
   const removeItem = (itemToRemove) => {
@@ -55,6 +63,18 @@ function App() {
     setSearchItem(e.target.value);
   }
 
+  const [counter , setCounter] = useState(1)
+
+  const handleAddCounter = () => {
+    setCounter( prev => prev + 1)
+  }
+
+  const handleSubCounter = () => {
+    if(counter > 1){
+    setCounter( prev => prev - 1)
+    }
+
+  }
   
 
 
@@ -64,7 +84,7 @@ function App() {
       <Loader/>
       <Navbar toggle={toggleCart} cartCount={cartCount} search={search} searchItem={searchItem}/>  
       <Shop addToCart={addToCart} searchItem={searchItem} />
-      <Cart isOpen={cartOpen} toggle={toggleCart} cart={cart} removeItem={removeItem}/>
+      <Cart isOpen={cartOpen} toggle={toggleCart} cart={cart} removeItem={removeItem} counter={counter} handleAddCounter={handleAddCounter} handleSubCounter={handleSubCounter}/>
       {showAlertMessage && 
         <motion.div 
           className='fixed top-5 left-1/2 transform -translate-x-[50%] -translate-y-[50%] bg-[#FF0017] px-3 py-1 rounded-2xl text-white'
