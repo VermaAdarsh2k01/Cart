@@ -87,7 +87,7 @@ function App() {
       <Cart isOpen={cartOpen} toggle={toggleCart} cart={cart} removeItem={removeItem} counter={counter} handleAddCounter={handleAddCounter} handleSubCounter={handleSubCounter}/>
       {showAlertMessage && 
         <motion.div 
-          className='fixed top-5 left-1/2 transform -translate-x-[50%] -translate-y-[50%] bg-[#FF0017] px-3 py-1 rounded-2xl text-white'
+          className='fixed top-5 left-1/2 transform -translate-x-[50%] -translate-y-[50%] bg-[#FF0017] px-3 py-1 rounded-2xl text-white max-sm:left-[35%]'
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100}}
@@ -95,7 +95,7 @@ function App() {
         >
             Added to Cart!
         </motion.div>
-      }
+      } 
     </div>
   )
 }

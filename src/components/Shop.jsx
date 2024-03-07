@@ -176,40 +176,43 @@ function Shop( {addToCart , searchItem }) {
 
   return (
     <div className='relative'>    
-      <div className='max-w-full min-h-full p-6 flex max-[425px]:p-1 max-[425px]:gap-5 max-[525px]:flex-col  max-[425px]:items-center '>  
-        <div className='filter-container w-[10vw] flex flex-col border-2 rounded-2xl p-5 h-full max-[425px]:w-[98vw] max-[425px]:px-3 max-[500px]:w-[92vw]'>
-            {/* <p className=' pl-1 pb-2 pt-2 text-3xl font-semibold border-b-4 mb-4 max-[425px]:pt-0 max-[425px]:text-[5vw] max-[425px]:pb-0'>
-              Filter
-            </p> */}
+      <div className='max-w-full min-h-full p-6 flex max-[425px]:p-1 max-[425px]:gap-5 max-[625px]:flex-col max-[525px]:items-center max-[625px]:gap-8'>  
+        <div className='filter-container w-[15vw] flex flex-col border-2 rounded-2xl p-5 h-full max-[425px]:w-[98vw] max-[425px]:px-3 max-[625px]:w-[92vw]'>
             <div className='flex flex-col gap-2 text-lg max-[425px]:gap-1 '>
               <div className='w-full border-b-2 max-[425px]:flex'>
                 <h1 className='w-full font-bold text-gray-400'>Gender</h1>
                   <div className='w-full flex gap-2 '>  
                     <label className='m-1 max-[425px]:mr-2' >
-                      <input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked}/>
+                      <input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked} className='mr-1'/>
                       Men
                     </label>
                   </div>
                   <div className='w-full flex gap-2'>  
                     <label className='m-1'>
-                      <input type='checkbox' name='Women' checked={isWomenChecked} onChange={handleWomenChecked}/>
+                      <input type='checkbox' name='Women' checked={isWomenChecked} onChange={handleWomenChecked} className='mr-1'/>
                       Women
                     </label>
                   </div>
               </div>
-              <div className='flex max-[425px]:flex min-[500px]:flex-col'>
+              <div className='flex flex-col max-[425px]:flex'>
               <h1 className='w-full font-bold text-gray-400 mb-2 max-[425px]:w-[30vw]'>Range</h1>
-                <Slider
-                    size='small'
-                    value={range}
-                    onChange={handleRangeChange}
-                    valueLabelDisplay="auto"
-                    marks
-                    shiftStep={10000}
-                    step={10000}
-                    min={0}
-                    max={30000}
-                />
+                <div className='px-2 pr-5 w-full h-[4vh] '>
+                  <Slider
+                      size='small'
+                      value={range}
+                      onChange={handleRangeChange}
+                      valueLabelDisplay="auto"
+                      marks
+                      shiftStep={10000}
+                      step={10000}
+                      min={0}
+                      max={30000}
+                  />
+                </div>
+                <div className='h-[3vh] flex justify-between text-[0.9vw] max-sm:text-[4vw] '>
+                  <span className=''>Rs. 0</span>
+                  <span>Rs. 30,000</span>
+                </div>
               </div>
             </div>
         </div>
