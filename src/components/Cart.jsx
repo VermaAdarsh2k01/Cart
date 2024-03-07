@@ -21,7 +21,7 @@ function Cart({toggle , isOpen , cart , removeItem }) {
   // }
 
   return (
-    <div className={`w-[40vw] max-[420px]:w-full h-screen text-black bg-zinc-800 fixed top-0 right-0 transition-transform ease-in duration-300 translate-x-0  ${isOpen ? 'translate-x-0' : 'translate-x-full'} p-5 overflow-y-auto rounded-l-xl`} > 
+    <div className={`w-[40vw] max-[420px]:w-full max-sm:w-full h-screen text-black bg-zinc-800 fixed top-0 right-0 transition-transform ease-in duration-300 translate-x-0  ${isOpen ? 'translate-x-0' : 'translate-x-full'} p-5 overflow-y-auto rounded-l-xl`} > 
         <div className='relative w-full h-[91vh]'>
           <div className='flex justify-end mb-4' onClick={toggle}>
             <MdCancel className= 'fill-zinc-100  text-3xl cursor-pointer'/>
