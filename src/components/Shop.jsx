@@ -179,9 +179,9 @@ function Shop( {addToCart , searchItem }) {
       <div className='max-w-full min-h-full p-6 flex max-[425px]:p-1 max-[425px]:gap-5 max-[625px]:flex-col max-[525px]:items-center max-[625px]:gap-8'>  
         <div className='filter-container w-[15vw] flex flex-col border-2 rounded-2xl p-5 h-full max-[425px]:w-[98vw] max-[425px]:px-3 max-[625px]:w-[92vw]'>
             <div className='flex flex-col gap-2 text-lg max-[425px]:gap-1 '>
-              <div className='w-full border-b-2 max-[425px]:flex'>
+              <div className='w-full border-b-2 max-[425px]:flex max-[600px]:flex max-[600px]:mr-auto '>
                 <h1 className='w-full font-bold text-gray-400'>Gender</h1>
-                  <div className='w-full flex gap-2 '>  
+                  <div className='w-full flex gap-2 items-center'>  
                     <label className='m-1 max-[425px]:mr-2' >
                       <input type='checkbox' name='Men' checked={isMenChecked} onChange={handleMenChecked} className='mr-1'/>
                       Men

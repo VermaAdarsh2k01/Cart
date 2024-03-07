@@ -17,9 +17,9 @@ function Loader() {
 
     useEffect(() => {
         
-        // setTimeout(() => {
-        //   setLoader(true);
-        // }, 2000); 
+        setTimeout(() => {
+          setLoader(true);
+        }, 2000); 
     
       }, [setLoader]);
     

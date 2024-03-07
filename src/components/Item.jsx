@@ -8,7 +8,7 @@ function Item({item , addToCart }) {
 
     return (
     <div 
-      className='w-[25vw] max-[420px]:w-[40vw]' 
+      className='w-[25vw] max-[420px]:w-[40vw] max-[700px]:w-[40vw]' 
       onMouseEnter={()=> setIsHovered(true)}
       onMouseLeave={()=> setIsHovered(false)}
     >
@@ -23,7 +23,7 @@ function Item({item , addToCart }) {
              transition={{delay: 0.1}}
              className='flex flex-col mt-2'
           >
-            <button className='bg-black text-white px-4 py-1 rounded-2xl flex justify-center items-center w-[5vw] max-sm:w-[20vw] max-[525px]:w-[15vw]'>Buy</button>
+            <button className='bg-black text-white px-4 py-1 rounded-2xl flex justify-center items-center w-[5vw] max-sm:w-[20vw] max-[625px]:w-[15vw]'>Buy</button>
             <div className='price flex items-center justify-center pt-1 text-lg text-center font-medium max-sm:text-[4vw] '>Rs.{item.price}</div>
             
           </motion.div>
