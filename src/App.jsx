@@ -24,12 +24,11 @@ function App() {
   
   const addToCart = (item) => {
     const existingItem = cart.find(cartItem => cartItem.id === item.id);
-    if (existingItem) {
+    if (existingItem) {  //items is already in the cart , so no need to add again , if existingItem is trrue means item already exists.
       return;
-    } else {
+    } else {  //the existingItem value if false , meaning the item isn't presend in cart array , therefore you can add .
       setCart(cart => [...cart, item]);
     }
-    // setCart([...cart , item])
     setShowAlertMessage(true)
     setTimeout( ()=> setShowAlertMessage(false) ,3000) 
     setCartOpen(true)
@@ -43,7 +42,7 @@ function App() {
     const index = newCart.findIndex(item => item.id === itemToRemove.id);
   
     if(index !== -1){
-      newCart.splice(index, 1)
+      newCart.splice(index, 1) //first argument index is the one to be removed , 
       setCart(newCart) 
     }
   }
